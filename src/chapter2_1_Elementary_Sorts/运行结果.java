@@ -23,8 +23,8 @@ public class 运行结果 {
 		String input = "SORTEXAMPLE";
 		String[] a = input.split("");
 //		Selection.sort(a);//选择排序
-//		Insertion.sort(a);//插入排序
-		Shell.sort(a);//希尔排序
+		Insertion.sort(a);//插入排序
+//		Shell.sort(a);//希尔排序
 		assert isSorted(a);
 		show(a);
 	}
