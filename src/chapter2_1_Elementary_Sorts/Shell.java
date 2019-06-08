@@ -10,6 +10,11 @@ import algs4.StdOut;
  */
 @SuppressWarnings({"rawtypes", "unused", "unchecked"})
 public class Shell {
+	/**
+	 * @author Administrator
+	 * @category 先对数组做大范围的替换，将不合适位置的数优先放到可能的合适位置附近，然后再进行小范围替换，最终达到目的（希尔排序）
+	 * @param a
+	 */
     public static void sort(Comparable[] a) {
         // 将 a[] 按升序排列
         int N = a.length;
