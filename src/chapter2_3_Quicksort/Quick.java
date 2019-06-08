@@ -1,5 +1,7 @@
 package chapter2_3_Quicksort;
 
+import java.util.Arrays;
+
 import algs4.StdOut;
 import algs4.StdRandom;
 
@@ -37,8 +39,10 @@ public class Quick {
             if(i >= j)
                 break;
             exch(a, i, j);
+            System.out.println("第"+i+"次:  "+Arrays.toString(a));
         }
         exch(a, lo, j);
+        System.out.println("第"+i+"次:  "+Arrays.toString(a));
         return j;
     }
     

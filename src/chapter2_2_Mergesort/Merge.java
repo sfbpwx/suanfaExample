@@ -1,5 +1,7 @@
 package chapter2_2_Mergesort;
 
+import java.util.Arrays;
+
 import algs4.StdOut;
 
 /**
@@ -14,16 +16,22 @@ public class Merge {
         aux = new Comparable[a.length];
         sort(a, 0, a.length - 1);
     }
-    
+    static int i = 0;
     private static void sort(Comparable[] a, int lo, int hi) {
         // 将数组 a[lo..hi] 排序
         if(hi <= lo)
             return;
         int mid = lo + (hi - lo) / 2;
+        i++;
+        System.out.println("第"+i+"次:  "+Arrays.toString(a));
         sort(a, lo, mid);    // 将左半边排序
         sort(a, mid + 1, hi);    // 将右半边排序
-        if(less(a[mid+1], a[mid]))    // 为 false 则认为数组已经是有序的，跳过 merge()
-            merge(a, lo, mid, hi);    // 归并结果
+        if(less(a[mid+1], a[mid]))  {
+        	// 为 false 则认为数组已经是有序的，跳过 merge()
+        	 merge(a, lo, mid, hi);    // 归并结果
+             System.out.println("第"+i+"次:  "+Arrays.toString(a));
+        }
+           
     }
     
     public static void merge(Comparable[] a, int lo, int mid, int hi) {
@@ -33,15 +41,18 @@ public class Merge {
         for(int k = lo; k <= hi; k++)    // 将 a[lo..hi] 复制到 aux[lo..hi]
             aux[k] = a[k];
         
-        for(int k = lo; k <= hi; k++)
-            if(i > mid)    // 左半边元素用尽
-                a[k] = aux[j++];
-            else if(j > hi)    // 右半边元素用尽
-                a[k] = aux[i++];
-            else if(less(aux[i], aux[j]))
-                a[k] = aux[i++];
-            else
-                a[k] = aux[j++];               
+        for(int k = lo; k <= hi; k++){
+        	 if(i > mid)    // 左半边元素用尽
+                 a[k] = aux[j++];
+             else if(j > hi)    // 右半边元素用尽
+                 a[k] = aux[i++];
+             else if(less(aux[i], aux[j]))
+                 a[k] = aux[i++];
+             else
+                 a[k] = aux[j++];   
+        	 System.out.println("第"+i+"次:  "+Arrays.toString(a));
+        }
+           
     }
     
     private static boolean less(Comparable v, Comparable w) {

@@ -1,5 +1,7 @@
 package chapter2_1_Elementary_Sorts;
 
+import chapter2_2_Mergesort.Merge;
+import chapter2_3_Quicksort.Quick;
 import suanfaExample.paixu01_xuanze;
 
 public class 运行结果 {
@@ -20,11 +22,15 @@ public class 运行结果 {
 		return true;
 	}
 	public static void main(String[] args){
-		String input = "SORTEXAMPLE";
+//		String input = "SORTEXAMPLE";
+//		String input = "MERGESORTEXAMPLE";
+		String input = "KRATELEPUIMQCXOS";
 		String[] a = input.split("");
 //		Selection.sort(a);//选择排序
-		Insertion.sort(a);//插入排序
+//		Insertion.sort(a);//插入排序
 //		Shell.sort(a);//希尔排序
+//		Merge.sort(a);
+		Quick.sort(a);
 		assert isSorted(a);
 		show(a);
 	}
